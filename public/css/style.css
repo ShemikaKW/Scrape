@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body { 
+    font-size: 16px;
+    background-color: #ECEAE3;
+    color: #0E1822;
+}
+
+#main-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+}
+
+.navbar {
+    background-color: #474B44!important;
+}
+
+.navbar-brand {
+    
+    font-size: 24px;
+}
+
+.navbar-brand:hover {
+    color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+a:hover {
+    color: #CBC6B3;
+}
+
+#handleLink {
+    color: blue;
+}
+
+.top-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+	justify-content: center;
+}
+
+.jumbotron {
+    text-align: center;
+    opacity: 0.95;
+    width: 50%;
+    height: auto;
+    padding: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#title {
+    font-family: 'Cormorant', serif;
+    font-size: 70px;
+    letter-spacing: 1.0px;
+    color: #000000;
+}
+
+.lead {
+    font-family: 'Cormorant', serif;
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 1.0px;
+    color: #000000;
+}
+
+#motto {
+    font-family: 'Cormorant', serif;
+    font-size: 24px;
+    letter-spacing: 1.0px;
+    color: #000000;
+}
+
+#champion {
+    width: 8%;
+    height: auto;
+}
+
+#article-card,
+#savedArticle-card {
+    width: 100%;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #474B44;
+    border-color: #474B44;
+    font-size: 24px;
+    letter-spacing: 1.0px;
+}
+
+#save-btn,
+.choice-btn,
+.saveNote,
+#close {
+    color: #ffffff;
+    background-color: #474B44;
+    border-color: #474B44;
+    letter-spacing: 1.0px;
+}
+
+#save-btn:hover,
+.choice-btn:hover,
+.saveNote:hover,
+#close:hover {
+    background-color:#ffffff;
+    border-color: #474B44;
+    color: #474B44!important;
+}
+
+#none,
+#question-card {
+    display: flex;
+    justify-content: center;
+    display: none;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#question-card {
+    background-color: #CBC6B3;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+}
+
+.choice:hover {
+    color: #ffffff;
+}
+
+#article-card {
+    display: none;
+}
+
+.article-link {
+    color: blue;
+    text-decoration: underline;
+}
+
+#headline,
+#savedHeadline {
+    font-size: 18px;
+}
+

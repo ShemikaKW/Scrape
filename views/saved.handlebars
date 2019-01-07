@@ -1,0 +1,85 @@
+<img id="main-image" src="/images/newspaper.jpg">
+
+<div class="top-container">
+  <div class="jumbotron">
+    <h1 class="display-4" id="title">Saved Articles</h1>
+   <img id="champion" src="public/images/champion.png">
+    <br>
+    <p></p>
+    <p class="lead">Your Saved Articles</p>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12" id="savedArticle-card">
+      <ul class="list-group">
+        <li class="list-group-item active">Saved Articles</li>
+        <li class="list-group-item" id="savedArticle">
+          <p id="savedHeadline"><strong>{{article.title}}</strong></p>
+          <p id="handleExcerpt">{{article.excerpt}}</p>
+          <a id="handleLink" target='_blank' href="{{article.link}}">{{article.link}}</a>
+          <p></p>
+          <p id="handleDate">{{article.date}}</p>
+          <a class="btn btn-primary delete choice choice-btn" href="#" role="button">Delete Article</a>
+          <a class="btn btn-primary addNote choice choice-btn" data-toggle="modal" data-target="#exampleModal" href="#"
+            role="button">Add a Note</a>
+        </li>
+        </li>
+      </ul>
+
+      <!-- Modal -->
+      <div class="modal fade modalNote" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titleinput"><strong>Notes for: </strong>{{article.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              {{#if this.notes}}
+              {{#each this.notes}}
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <p class="previousNotes"> {{this.body}}</p>
+                  <button type="button" class="btn btn-danger deleteNote" data-note-id={{this._id}} data-article-id={{this.article}}>X</button>
+                </div>
+              </div>
+              {{/each}}
+              {{else}}
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h6 id="note-message">No notes for this article yet.</h6>
+                </div><p></p>
+              </div>
+              {{/if}}
+              <div class="form-group">
+                <textarea id="noteText{{this._id}}" class="form-control" rows="4" placeholder="New Note"></textarea>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary saveNote" id="savenote" data-id={{this._id}}>Save Note</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     </div>
+  </div>
+  <br>
+  <br>
+
+
+  <script>
+    $(document).ready(function () {
+      $("#nav-scrape").hide();
+    });
+  </script> 

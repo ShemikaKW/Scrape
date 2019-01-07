@@ -2,52 +2,53 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
+var logger = require("morgan");
 
-var db = require("./models");
-
-//Initialize Express
-var app = express();
+//All models
+var Note = require("./models/Note.js");
+var Article = require("./models/Article.js");
+var models = require("./models");
 
 //Set Port
 var PORT = process.env.PORT || 3000;
 
+//Initialize Express
+var app = express();
+
+// Import routes
+var router = express.Router();
+
+//Require routes
+require("./config/routes")(router);
+
 // Middleware
-//app.use(logger('dev'));
-app.use(express.urlencoded({ extended: false }));
+
+app.use(router);
+//Use Morgan logger for logging requests
+app.use(logger('dev'));
+//Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Routes must be defined here to get body parser to work
-require("./routes/htmlRoutes")(app);
 
 // Set up a static folder (public) for our web app
 app.use(express.static("public"));
 
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
-// Database configuration
-// Save the URL of our database as well as the name of our collection
-var databaseUrl = "artifice_db";
-var collections = ["articles"];
+
+//Set MongoDB
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newScrapper-TheChampion";
 
 // Connect to the Mongo DB
-//mongoose.connect("mongodb://localhost/artifice_db", { useNewUrlParser: true });
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/artifice_db";
+mongoose.connect( MONGODB_URI, { useNewUrlParser: true });
 
-mongoose.connect(MONGODB_URI);
 
 // Set the app to listen on port 3000
 app.listen(PORT, function() {
-  //console.log("App running at: http://localhost:3000/");
+  console.log("App running at: http://localhost:3000/");
 });
 
-//MUST EXPORT APP FOR REQ.BODY TO WORK
-module.exports = app;
-//module.exports = moment;

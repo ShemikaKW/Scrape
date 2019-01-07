@@ -1,0 +1,45 @@
+<img id="main-image" src="images/newspaper.jpg">
+
+<div class="top-container">
+  <div class="jumbotron">
+    <h1 class="display-4" id="title">Mongo Scraper</h1>
+    <img id="champion" src="/images/champion.png">
+    <br>
+    <p></p>
+    <p class="lead">The Champion Edition</p>
+    <p id="motto">America's Finest News Source</p>
+  </div>
+</div>
+
+
+<br>
+<br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-danger" id="none" role="alert">
+        There are no articles at this time.
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body" id="question-card">
+          <h5 class="card-title"><strong>What next?</strong></h5>
+          <p class="card-text">What would you like to do?</p>
+          <a class="btn btn-primary scrape choice choice-btn" href="/scrape" role="button">Scrape New Articles</a>
+          <a class="btn btn-primary saved choice choice-btn" href="/saved" role="button">Go to Saved Articles</a>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    <div class="col-md-12" id="article-card">
+      <ul class="list-group">
+        <li class="list-group-item active">Articles</li>
+        <li class="list-group-item" id="articles">
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
